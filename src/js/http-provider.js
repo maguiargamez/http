@@ -9,7 +9,5 @@ export const getJoke = async () => {
         return { icon_url, id, value };
     }catch( err ){
         throw err;
-    }  
-    
-
+    }
 }
