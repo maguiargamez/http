@@ -1,6 +1,7 @@
 const jokeUrl = 'https://api.chucknorris.io/jokes/random';
+const usersUrl = 'https://reqres.in/api/users?page=2';
 
-export const getJoke = async () => {
+const getJoke = async () => {
 
     try{
         const response = await fetch( jokeUrl );
@@ -10,4 +11,22 @@ export const getJoke = async () => {
     }catch( err ){
         throw err;
     }
+}
+
+const getUsers = async () => {
+    try{
+        const response = await fetch( usersUrl );
+        if( !response.ok ) return alert('No se pudo realizar la peticion');  
+        const { data: users } = await response.json();
+        return users;
+
+    }catch( err ){
+        throw err;
+    }
+}
+
+export{
+    getJoke,
+    getUsers
+
 }
